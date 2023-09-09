@@ -29,6 +29,8 @@ class MainActivity : AppCompatActivity() {
 
 class Dice(val numSides : Int){
     fun roll(): Int{
-        return (1..numSides).random()
+        //val range : IntRange = 1..numSides
+        val range = 1..numSides // same as above, the system derives the type of range variable
+        return range.random()
     }
 }

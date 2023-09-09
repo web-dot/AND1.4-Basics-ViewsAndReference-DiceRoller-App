@@ -25,13 +25,41 @@ class MainActivity : AppCompatActivity() {
         // Create new Dice objecct with 6 sides and roll it
         val dice = Dice(6)
         val diceRoll = dice.roll()
-        // update the screen with the dice roll(code used before adding ImageView)
+        /**update the screen with the dice roll(code used before adding ImageView)*/
         //val resultTextView: TextView = findViewById(R.id.textView)
         //resultTextView.text = diceRoll.toString()
 
         // update screen with the dice image
         val diceImage: ImageView = findViewById(R.id.imageView)
-        diceImage.setImageResource(R.drawable.dice_2)
+
+        /**for test*/
+        //diceImage.setImageResource(R.drawable.dice_2)
+
+
+        /**
+        when (diceRoll){
+            1 -> diceImage.setImageResource(R.drawable.dice_1)
+            2 -> diceImage.setImageResource(R.drawable.dice_2)
+            3 -> diceImage.setImageResource(R.drawable.dice_3)
+            4 -> diceImage.setImageResource(R.drawable.dice_4)
+            5 -> diceImage.setImageResource(R.drawable.dice_5)
+            6 -> diceImage.setImageResource(R.drawable.dice_6)
+        }
+        */
+
+        // the above code can be made more concise as below
+        val drawableResource = when (diceRoll) {
+            1 -> R.drawable.dice_1
+            2 -> R.drawable.dice_2
+            3 -> R.drawable.dice_3
+            4 -> R.drawable.dice_4
+            5 -> R.drawable.dice_5
+            else -> R.drawable.dice_6
+        }
+
+        diceImage.setImageResource(drawableResource)
+
+
     }
 }
 

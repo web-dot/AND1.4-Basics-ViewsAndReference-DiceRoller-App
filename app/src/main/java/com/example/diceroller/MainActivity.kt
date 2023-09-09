@@ -14,21 +14,24 @@ class MainActivity : AppCompatActivity() {
         //1. get reference of the button using Resource id
         val rollButton: Button = findViewById(R.id.button)
         //2. add event listener
-        rollButton.setOnClickListener {
-            rollDice()
-        }
+        rollButton.setOnClickListener { rollDice() }
     }
 
+    /**
+     * Roll the dice and update the screen with the result
+     * */
     private fun rollDice() {
+        // Create new Dice objecct with 6 sides and roll it
         val dice = Dice(6)
         val diceRoll = dice.roll()
-        val resultTextView : TextView = findViewById(R.id.textView)
+        // update the screen with the dice roll
+        val resultTextView: TextView = findViewById(R.id.textView)
         resultTextView.text = diceRoll.toString()
     }
 }
 
-class Dice(val numSides : Int){
-    fun roll(): Int{
+class Dice(val numSides: Int) {
+    fun roll(): Int {
         //val range : IntRange = 1..numSides
         val range = 1..numSides // same as above, the system derives the type of range variable
         return range.random()
